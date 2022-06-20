@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint || (echo "Existem erros de Lint no código, por favor corrija-os!"; false);
