@@ -5,7 +5,6 @@ module.exports = {
   },
   'extends': [
     'plugin:react/recommended',
-    'google',
     "eslint:recommended",
   ],
   'parser': '@typescript-eslint/parser',
@@ -21,6 +20,12 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": 0
+  },
+  'settings': {
+    react: {
+      version: 'detect',
+    },
   },
 };
