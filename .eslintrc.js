@@ -28,4 +28,15 @@ module.exports = {
       version: 'detect',
     },
   },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 };

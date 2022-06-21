@@ -2,3 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn lint || (echo "Existem erros de Lint no código, por favor corrija-os!"; false);
+yarn test || (echo "Seus testes não passaram, por favor corrija-os!"; false);
