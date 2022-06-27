@@ -11,7 +11,7 @@ const RouterView = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Routes>
-          <Route path={routes.default} element={<View.Home />} />
+          <Route path={routes.default} element={<View.InMaintenance />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
