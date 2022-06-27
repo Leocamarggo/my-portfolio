@@ -14,7 +14,11 @@ const RouterView = () => {
           <Route
             path={routes.default}
             element={
-              Boolean(process.env.REACT_APP_IN_MAINTENACE) ? <View.InMaintenance /> : <View.Home />
+              process.env.REACT_APP_IN_MAINTENACE === 'true' ? (
+                <View.InMaintenance />
+              ) : (
+                <View.Home />
+              )
             }
           />
         </Routes>
