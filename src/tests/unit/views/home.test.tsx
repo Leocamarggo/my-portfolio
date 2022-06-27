@@ -1,7 +1,11 @@
-import renderer from 'react-test-renderer';
+import '@testing-library/jest-dom';
 import Home from '../../../views/Home';
+import { cleanup, render, screen } from '@testing-library/react';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<Home />).toJSON();
-  expect(tree);
+afterEach(cleanup);
+
+it('First test', () => {
+  render(<Home />);
+
+  expect(screen.getByText('init')).toBeInTheDocument();
 });
