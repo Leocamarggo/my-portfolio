@@ -11,7 +11,16 @@ const RouterView = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Routes>
-          <Route path={routes.default} element={<View.Home />} />
+          <Route
+            path={routes.default}
+            element={
+              process.env.REACT_APP_IN_MAINTENACE === 'true' ? (
+                <View.InMaintenance />
+              ) : (
+                <View.Home />
+              )
+            }
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
