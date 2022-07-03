@@ -1,9 +1,13 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import routes from './routes';
 import * as View from '../views';
 import theme from '../styles/theme';
 import GlobalStyle from '../styles/global';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+AOS.init();
 
 const RouterView = () => {
   return (
