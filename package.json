@@ -28,7 +28,8 @@
     "lint": "eslint \"**/*.{ts,tsx}\" --color",
     "lint:fix": "eslint --fix",
     "prettier": "prettier src -c",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git cz"
   },
   "eslintConfig": {
     "extends": [
