@@ -1,5 +1,12 @@
+// import { Header } from 'components';
+
 const App = () => {
-  return <div>init</div>;
+  return (
+    <>
+      {/* <Header /> */}
+      <p>init</p>
+    </>
+  );
 };
 
 export default App;
