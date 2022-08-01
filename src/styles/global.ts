@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     color: #fff;
     font-family: 'Century';
-    background-color: ${({ theme }) => theme.colors.darkGray};
   }
 
 `

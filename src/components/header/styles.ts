@@ -4,17 +4,19 @@ export const Container = styled.div`
     margin-top: 30px;
 `
 export const DesktopMenu = styled.ul`
-    padding: 0;
-    display: flex;
-    overflow: hidden;
-    list-style: none;
-    flex-wrap: nowrap;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-    @media (max-width: 999px) {
-        display: none;
-    }
+    ${({ theme }) => css`
+        padding: 0;
+        display: flex;
+        overflow: hidden;
+        list-style: none;
+        flex-wrap: nowrap;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-end;
+        @media (max-width: ${theme.breakPoints.tablet}) {
+            display: none;
+        }
+    `}
 `
 
 export const DesktopContent = styled.li`
@@ -59,15 +61,17 @@ export const DesktopText = styled.span`
 `
 
 export const MobileMenu = styled.div`
-    z-index: 5;
-    width: 100%;
-    height: 50px;
-    display: none;
-    align-items: center;
-    justify-content: flex-end;
-    @media (max-width: 999px) {
-        display: block;
-    }
+    ${({ theme }) => css`
+        z-index: 5;
+        width: 100%;
+        height: 50px;
+        display: none;
+        align-items: center;
+        justify-content: flex-end;
+        @media (max-width: ${theme.breakPoints.tablet}) {
+            display: block;
+        }
+    `}
 `
 
 export const MobileContent = styled.ul`
@@ -88,12 +92,12 @@ export const MobileContent = styled.ul`
 
 export const MobileText = styled.li`
     ${({ theme }) => css` 
-        color: ${theme.colors.white};
         margin: 40px 0;
         font-size: 20px;
         cursor: pointer;
         font-weight: bold;
         letter-spacing: 1px;
+        color: ${theme.colors.white};
     `}
 `
 
