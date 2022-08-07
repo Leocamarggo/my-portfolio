@@ -1,6 +1,34 @@
 import * as T from './styles';
+import { useState } from 'react';
+import { IEmailRequest } from 'interfaces/contact';
+import ContactService from 'services/send-email.service';
 
 const Contact = () => {
+  const [emailData, setEmailData] = useState<IEmailRequest>();
+
+  const validateEmail = (email: string) => {
+    var re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
+  const sendEmail = () => {
+    if (!emailData?.name) {
+      alert('Preencha o campo nome!');
+      return;
+    } else if (!emailData?.email) {
+      alert('Preencha o campo email!');
+      return;
+    } else if (!validateEmail(emailData.email)) {
+      alert('Digite um email valido!');
+      return;
+    } else if (!emailData?.message) {
+      alert('Preencha o campo mensagem!');
+      return;
+    }
+
+    ContactService.sendEmail(emailData);
+  };
   return (
     <T.ContactContainer>
       <T.ContactContent className="container">
@@ -19,6 +47,7 @@ const Contact = () => {
                   name="name"
                   autoComplete="off"
                   style={{ marginRight: 30 }}
+                  onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
                 />
                 <T.GenericLabel htmlFor="name">NOME</T.GenericLabel>
               </div>
@@ -29,6 +58,7 @@ const Contact = () => {
                   type="email"
                   className="w-100"
                   autoComplete="off"
+                  onChange={(e) => setEmailData({ ...emailData, email: e.target.value })}
                 />
                 <T.GenericLabel htmlFor="email">E-MAIL</T.GenericLabel>
               </div>
@@ -36,12 +66,17 @@ const Contact = () => {
 
             <T.RowMessage>
               <div className="col-12">
-                <T.MessageTextarea autoComplete="off" name="message" required />
+                <T.MessageTextarea
+                  required
+                  name="message"
+                  autoComplete="off"
+                  onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
+                />
                 <T.MessageLabel htmlFor="message">MENSAGEM</T.MessageLabel>
               </div>
             </T.RowMessage>
 
-            <T.SubmitButton>Enviar</T.SubmitButton>
+            <T.SubmitButton onClick={sendEmail}>Enviar</T.SubmitButton>
           </T.FormContainer>
         </T.BoxForm>
       </T.ContactContent>
