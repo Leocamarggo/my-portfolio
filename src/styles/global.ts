@@ -17,6 +17,18 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Century';
   }
 
+  ::-webkit-scrollbar{
+    width: 8px
+  }
+
+  ::-webkit-scrollbar-track{
+    background-color: #414141
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background-color: rgb(2, 212, 99);
+    border-radius: 8px
+  }
 `
 
 export default GlobalStyle
