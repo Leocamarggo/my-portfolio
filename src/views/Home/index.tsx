@@ -1,9 +1,9 @@
 import * as T from './styles';
-import { Header } from 'components';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
 import Typewriter from 'typewriter-effect';
 import { options } from './particlesOptions';
+import { AboutMe, Header } from 'components';
 
 const HomePage = () => {
   return (
@@ -28,6 +28,8 @@ const HomePage = () => {
           <img src="/assets/images/illustration.png" alt="Illustração de Homem programando" />
         </T.Illustration>
       </T.IntroductionContainer>
+
+      <AboutMe />
 
       <Particles
         id="tsparticles"
