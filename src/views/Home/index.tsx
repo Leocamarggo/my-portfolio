@@ -2,6 +2,7 @@ import * as T from './styles';
 import { Header } from 'components';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
+import Typewriter from 'typewriter-effect';
 import { options } from './particlesOptions';
 
 const HomePage = () => {
@@ -13,7 +14,13 @@ const HomePage = () => {
         <T.Presentation className="col-6">
           <T.IAmTitle>Olá, eu sou</T.IAmTitle>
           <T.Name>Leonardo Camargo.</T.Name>
-          <T.Profession>Desenvolvedor Front-end</T.Profession>
+          <T.Profession>
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter.typeString('Desenvolvedor Front-end.').start();
+              }}
+            />
+          </T.Profession>
           <T.SeeMoreButton>Ver mais</T.SeeMoreButton>
         </T.Presentation>
 
