@@ -7,6 +7,23 @@ export const Container = styled.div`
         border-radius: 10px;
         margin: 0 30px 30px 0;
         background-color: ${theme.colors.darkGray};
+
+        @media (max-width: ${theme.breakPoints.desktop}) {
+            margin: 0 10px 30px 0 !important
+        }
+
+        @media (max-width: ${theme.breakPoints.tablet}) {
+            padding: 25px 50px
+        }
+
+        @media (max-width: ${theme.breakPoints.mobile}) {
+            padding: 35px 70px
+            margin: 0 3px 30px 0 !important
+        }
+
+        @media(max-width: 485px){
+            padding: 35px 50px !important
+        }
     `}
 `
 

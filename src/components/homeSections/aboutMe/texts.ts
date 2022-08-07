@@ -1,4 +1,4 @@
-export const about = 'Meu nome é Leonardo Camargo, mas pode me chamar de Léo. <br/> Sou um entusiasta da tecnologia, curioso e apaixonado por programação desde 2018. Sempre buscando estudar novas tecnologias e me especializar nas existentes.'
+export const about = 'Olá! Me chamo Leonardo, mas pode me chamar de Léo 🤓 <br/> <br/> Escrevendo códigos desde 2018 sou mais um apaixonado por programação e que ama aprender coisas novas. Atualmente trabalho como desenvolvedor Front-end na Usabit e estou cursando Engenharia de Software pela Anhaguera. <br/> <br/>  Dentre todos esses anos já atuei com diversas tecnologias, porém, das quais mais possuo conhecimento são em ReactJS e VueJS ❤️'
 
 export const technologies = [
     {
