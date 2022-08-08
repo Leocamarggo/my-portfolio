@@ -4,9 +4,10 @@ import { IEmailRequest } from 'interfaces/contact';
 export default class ContactService {
   static async sendEmail(data: IEmailRequest): Promise<void> {
     try {
-        await api.post(`api/send-email`, data)
+      const req = await api.post(`api/send-email`, {...data, email: `leonardo.camarggo@outlook.com`})
+      console.log(req)
     } catch (err) {
-        console.log(err);
+      console.log(err);
     }
   }
 }

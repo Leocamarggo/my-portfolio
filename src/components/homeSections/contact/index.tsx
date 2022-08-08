@@ -13,13 +13,13 @@ const Contact = () => {
   };
 
   const sendEmail = () => {
-    if (!emailData?.name) {
+    if (!emailData?.subject) {
       alert('Preencha o campo nome!');
       return;
-    } else if (!emailData?.email) {
+    } else if (!emailData?.name) {
       alert('Preencha o campo email!');
       return;
-    } else if (!validateEmail(emailData.email)) {
+    } else if (!validateEmail(emailData.name)) {
       alert('Digite um email valido!');
       return;
     } else if (!emailData?.message) {
@@ -47,7 +47,7 @@ const Contact = () => {
                   name="name"
                   autoComplete="off"
                   style={{ marginRight: 30 }}
-                  onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
+                  onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
                 />
                 <T.GenericLabel htmlFor="name">NOME</T.GenericLabel>
               </div>
@@ -58,7 +58,7 @@ const Contact = () => {
                   type="email"
                   className="w-100"
                   autoComplete="off"
-                  onChange={(e) => setEmailData({ ...emailData, email: e.target.value })}
+                  onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
                 />
                 <T.GenericLabel htmlFor="email">E-MAIL</T.GenericLabel>
               </div>
