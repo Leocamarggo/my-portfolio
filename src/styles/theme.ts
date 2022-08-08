@@ -5,7 +5,8 @@ export default {
       darkGray: '#1A1A1A',
       green: '#02d463',
       white: '#ffffff',
-      middleGray: '#2E2E2E'
+      middleGray: '#2E2E2E',
+      lightGray: '#b3b3b3'
     },
     breakPoints: {
       mobile: "765px",

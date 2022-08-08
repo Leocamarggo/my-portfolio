@@ -3,7 +3,7 @@ import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
 import Typewriter from 'typewriter-effect';
 import { options } from './particlesOptions';
-import { AboutMe, Header } from 'components';
+import { AboutMe, Projects, Contact, Header, Footer } from 'components';
 
 const HomePage = () => {
   return (
@@ -30,6 +30,12 @@ const HomePage = () => {
       </T.IntroductionContainer>
 
       <AboutMe />
+
+      <Projects />
+
+      <Contact />
+
+      <Footer />
 
       <Particles
         id="tsparticles"
