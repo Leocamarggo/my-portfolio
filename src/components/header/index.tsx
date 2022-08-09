@@ -1,19 +1,8 @@
 import * as T from './styles';
 import { useState, useEffect } from 'react';
+import { IHeaderProps } from 'interfaces/header';
 
-const itemsMenu = [
-  {
-    name: 'Quem sou'
-  },
-  {
-    name: 'Projetos'
-  },
-  {
-    name: 'Contato'
-  }
-];
-
-const Header = () => {
+const Header = (itemsMenu: IHeaderProps[]) => {
   const [menuMobileIsOpen, setMobileIsOpen] = useState(false);
 
   useEffect(() => {
@@ -27,8 +16,8 @@ const Header = () => {
   return (
     <T.Container>
       <T.DesktopMenu className="container">
-        {itemsMenu.map(({ name }, i) => (
-          <T.DesktopContent key={i}>
+        {itemsMenu.map(({ name, ref }, i) => (
+          <T.DesktopContent onClick={() => ref.current?.scrollIntoView()} key={i}>
             <T.DesktopText>{name}</T.DesktopText>
           </T.DesktopContent>
         ))}
@@ -43,8 +32,13 @@ const Header = () => {
           <span className="navicon"></span>
         </T.MobileMenuIcon>
         <T.MobileContent className="menuMobile">
-          {itemsMenu.map(({ name }, i) => (
-            <T.MobileText key={i} onClick={() => setMobileIsOpen(!menuMobileIsOpen)}>
+          {itemsMenu.map(({ name, ref }, i) => (
+            <T.MobileText
+              key={i}
+              onClick={() => {
+                setMobileIsOpen(!menuMobileIsOpen);
+                ref.current?.scrollIntoView();
+              }}>
               {name}
             </T.MobileText>
           ))}
