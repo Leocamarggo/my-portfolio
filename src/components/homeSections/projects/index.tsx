@@ -1,10 +1,11 @@
 import * as T from './styles';
 import CardProjects from './cardProjects';
 import { projects } from './cardProjects/projects';
+import { IRefProps } from 'interfaces/genericInterfaces';
 
-const Projects = () => {
+const Projects = ({ reference }: IRefProps) => {
   return (
-    <T.ProjectsContainer className="container">
+    <T.ProjectsContainer ref={reference} className="container">
       <T.TitleRow>
         <T.TitleProjects>Projetos</T.TitleProjects>
         <T.LineTitle />
@@ -25,7 +26,12 @@ const Projects = () => {
       </T.ProjectsRow>
 
       <T.GitHubRow>
-        <T.TitleGitHub>Ver repositórios no GitHub</T.TitleGitHub>
+        <T.TitleGitHub
+          onClick={() => {
+            window.open('https://github.com/Leocamarggo?tab=repositories');
+          }}>
+          Ver repositórios no GitHub
+        </T.TitleGitHub>
         <T.LineGitHub />
       </T.GitHubRow>
     </T.ProjectsContainer>

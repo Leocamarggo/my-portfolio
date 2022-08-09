@@ -1,9 +1,10 @@
 import * as T from './styles';
 import { useState } from 'react';
 import { IEmailRequest } from 'interfaces/contact';
+import { IRefProps } from 'interfaces/genericInterfaces';
 import ContactService from 'services/send-email.service';
 
-const Contact = () => {
+const Contact = ({ reference }: IRefProps) => {
   const [emailData, setEmailData] = useState<IEmailRequest>();
 
   const validateEmail = (email: string) => {
@@ -30,7 +31,7 @@ const Contact = () => {
     ContactService.sendEmail(emailData);
   };
   return (
-    <T.ContactContainer>
+    <T.ContactContainer ref={reference}>
       <T.ContactContent className="container">
         <T.TitleContainer>
           <T.TitleProject>contato</T.TitleProject>

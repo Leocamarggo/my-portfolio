@@ -1,14 +1,35 @@
 import * as T from './styles';
+import { useRef } from 'react';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
 import Typewriter from 'typewriter-effect';
 import { options } from './particlesOptions';
+import { IHeaderProps } from 'interfaces/header';
 import { AboutMe, Projects, Contact, Header, Footer } from 'components';
 
 const HomePage = () => {
+  const aboutRef = useRef<null | HTMLDivElement>(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const ItemsHeader: IHeaderProps[] = [
+    {
+      name: 'Quem sou',
+      ref: aboutRef
+    },
+    {
+      name: 'Projetos',
+      ref: projectsRef
+    },
+    {
+      name: 'Contato',
+      ref: contactRef
+    }
+  ];
+
   return (
     <>
-      <Header />
+      {Header(ItemsHeader)}
 
       <T.IntroductionContainer className="container">
         <T.Presentation className="col-6">
@@ -21,7 +42,12 @@ const HomePage = () => {
               }}
             />
           </T.Profession>
-          <T.SeeMoreButton>Ver mais</T.SeeMoreButton>
+          <T.SeeMoreButton
+            onClick={() => {
+              aboutRef.current?.scrollIntoView();
+            }}>
+            Ver mais
+          </T.SeeMoreButton>
         </T.Presentation>
 
         <T.Illustration className="col-6">
@@ -29,11 +55,11 @@ const HomePage = () => {
         </T.Illustration>
       </T.IntroductionContainer>
 
-      <AboutMe />
+      <AboutMe reference={aboutRef} />
 
-      <Projects />
+      <Projects reference={projectsRef} />
 
-      <Contact />
+      <Contact reference={contactRef} />
 
       <Footer />
 
