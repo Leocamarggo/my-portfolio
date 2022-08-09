@@ -26,7 +26,12 @@ const Projects = ({ reference }: IRefProps) => {
       </T.ProjectsRow>
 
       <T.GitHubRow>
-        <T.TitleGitHub>Ver repositórios no GitHub</T.TitleGitHub>
+        <T.TitleGitHub
+          onClick={() => {
+            window.open('https://github.com/Leocamarggo?tab=repositories');
+          }}>
+          Ver repositórios no GitHub
+        </T.TitleGitHub>
         <T.LineGitHub />
       </T.GitHubRow>
     </T.ProjectsContainer>
