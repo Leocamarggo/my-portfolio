@@ -8,7 +8,7 @@ import { IHeaderProps } from 'interfaces/header';
 import { AboutMe, Projects, Contact, Header, Footer } from 'components';
 
 const HomePage = () => {
-  const aboutRef = useRef(null);
+  const aboutRef = useRef<null | HTMLDivElement>(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
@@ -42,7 +42,12 @@ const HomePage = () => {
               }}
             />
           </T.Profession>
-          <T.SeeMoreButton>Ver mais</T.SeeMoreButton>
+          <T.SeeMoreButton
+            onClick={() => {
+              aboutRef.current?.scrollIntoView();
+            }}>
+            Ver mais
+          </T.SeeMoreButton>
         </T.Presentation>
 
         <T.Illustration className="col-6">
