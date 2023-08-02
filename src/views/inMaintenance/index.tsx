@@ -1,7 +1,7 @@
 import * as S from './styles';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
-import { options } from '../Home/particlesOptions';
+import { options } from '../../utils/particlesOptions';
 
 const InMaintenance = () => {
   return (

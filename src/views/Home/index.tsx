@@ -3,8 +3,8 @@ import { useRef } from 'react';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
 import Typewriter from 'typewriter-effect';
-import { options } from './particlesOptions';
 import { IHeaderProps } from 'interfaces/header';
+import { options } from '../../utils/particlesOptions';
 import { AboutMe, Projects, Contact, Header, Footer } from 'components';
 
 const HomePage = () => {
@@ -38,7 +38,7 @@ const HomePage = () => {
           <T.Profession>
             <Typewriter
               onInit={(typewriter) => {
-                typewriter.typeString('Desenvolvedor Front-end.').start();
+                typewriter.typeString('Desenvolvedor Full Stack.').start();
               }}
             />
           </T.Profession>
