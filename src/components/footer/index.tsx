@@ -35,7 +35,7 @@ const Footer = () => {
           })}
         </T.LinksContainer>
         <T.CopyrightContainer className="col-6">
-          <T.CopyrightText>Copyright {new Date().getFullYear()} © Léo Camargo S2</T.CopyrightText>
+          <T.CopyrightText>Com 🤍 by Léo</T.CopyrightText>
         </T.CopyrightContainer>
       </T.FooterContent>
     </T.FooterContainer>
