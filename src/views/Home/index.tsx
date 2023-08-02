@@ -38,7 +38,7 @@ const HomePage = () => {
           <T.Profession>
             <Typewriter
               onInit={(typewriter) => {
-                typewriter.typeString('Desenvolvedor Front-end.').start();
+                typewriter.typeString('Desenvolvedor Full Stack.').start();
               }}
             />
           </T.Profession>

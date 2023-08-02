@@ -1,7 +1,7 @@
 export const about = `
     Olá! Me chamo Leonardo, mas pode me chamar de Léo 🤓 <br/> <br/> 
     Escrevendo códigos desde 2018 sou mais um apaixonado por programação e que ama aprender coisas novas. 
-    Atualmente trabalho como Desenvolvedor Fullstack na Verot Easy Tax. <br/> <br/>  
+    Atualmente trabalho como Desenvolvedor Full Stack na Verot Easy Tax. <br/> <br/>  
     Dentre todos esses anos já atuei com diversas tecnologias, porém, minhas principais stacks estão no ecossistema do JavaScript ❤️`
 
 export const technologies = [
