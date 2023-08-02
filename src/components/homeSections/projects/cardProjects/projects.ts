@@ -7,21 +7,21 @@ export interface ICardProjects {
 
 export const projects: ICardProjects[] = [
     {
-        name: "E-commerce Product",
-        about: "Website",
-        preview: "/assets/images/project-01.png",
-        url: "https://ecommerce-product-pg.vercel.app/"
+        name: "Em construção",
+        about: "",
+        preview: "/assets/images/building.png",
+        url: "#"
     },
     {
-        name: "Loja Kafnet",
-        about: "Website",
-        preview: "/assets/images/project-02.png",
-        url: "https://challenge-loja-kafnet.vercel.app/"
+        name: "Em construção",
+        about: "",
+        preview: "/assets/images/building-2.png",
+        url: "#"
     },
     {
-        name: "Breto Calçados",
-        about: "Website",
-        preview: "/assets/images/project-03.png",
-        url: "https://challenge-hello-world.vercel.app/"
+        name: "Em construção",
+        about: "",
+        preview: "/assets/images/building-3.png",
+        url: "#"
     }
 ]

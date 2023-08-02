@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const CardProjectsContainer = styled.div`
     ${({ theme }) => css`
@@ -18,17 +18,17 @@ export const PreviewProject = styled.img`
 `
 
 export const AboutProjectRow = styled.div`
-    opacity: 0;
+    opacity: 1;
     z-index: 100;
     display: flex;
     margin-top: -50px;
     align-items: center;
     transition: all 0.5s ease 0s;
-    justify-content: space-between;
+    justify-content: center;
 
-    &:hover{
+    /* &:hover{
         opacity: 1;
-    }
+    } */
 
     &:before{
         content: "";
