@@ -7,7 +7,7 @@ const Projects = ({ reference }: IRefProps) => {
   return (
     <T.ProjectsContainer ref={reference} className="container">
       <T.TitleRow>
-        <T.TitleProjects>Projetos</T.TitleProjects>
+        <T.TitleProjects>Projects</T.TitleProjects>
         <T.LineTitle />
       </T.TitleRow>
 
@@ -30,7 +30,7 @@ const Projects = ({ reference }: IRefProps) => {
           onClick={() => {
             window.open('https://github.com/Leocamarggo?tab=repositories');
           }}>
-          Ver repositórios no GitHub
+          See repositories in GitHub
         </T.TitleGitHub>
         <T.LineGitHub />
       </T.GitHubRow>

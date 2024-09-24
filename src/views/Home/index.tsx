@@ -14,15 +14,15 @@ const HomePage = () => {
 
   const ItemsHeader: IHeaderProps[] = [
     {
-      name: 'Quem sou',
+      name: 'About me',
       ref: aboutRef
     },
     {
-      name: 'Projetos',
+      name: 'Projects',
       ref: projectsRef
     },
     {
-      name: 'Contato',
+      name: 'Contact',
       ref: contactRef
     }
   ];
@@ -33,12 +33,12 @@ const HomePage = () => {
 
       <T.IntroductionContainer className="container">
         <T.Presentation className="col-6">
-          <T.IAmTitle>Olá, eu sou</T.IAmTitle>
+          <T.IAmTitle>Hi, i&apos;m</T.IAmTitle>
           <T.Name>Leonardo Camargo.</T.Name>
           <T.Profession>
             <Typewriter
               onInit={(typewriter) => {
-                typewriter.typeString('Desenvolvedor Full Stack.').start();
+                typewriter.typeString('Software Engineer.').start();
               }}
             />
           </T.Profession>
@@ -46,7 +46,7 @@ const HomePage = () => {
             onClick={() => {
               aboutRef.current?.scrollIntoView();
             }}>
-            Ver mais
+            See more
           </T.SeeMoreButton>
         </T.Presentation>
 

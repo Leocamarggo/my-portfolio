@@ -7,19 +7,19 @@ export interface ICardProjects {
 
 export const projects: ICardProjects[] = [
     {
-        name: "Em construção",
+        name: "Comming soon",
         about: "",
         preview: "/assets/images/building.png",
         url: "#"
     },
     {
-        name: "Em construção",
+        name: "Comming soon",
         about: "",
         preview: "/assets/images/building-2.png",
         url: "#"
     },
     {
-        name: "Em construção",
+        name: "Comming soon",
         about: "",
         preview: "/assets/images/building-3.png",
         url: "#"

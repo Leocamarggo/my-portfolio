@@ -15,16 +15,16 @@ const Contact = ({ reference }: IRefProps) => {
 
   const sendEmail = () => {
     if (!emailData?.subject) {
-      alert('Preencha o campo nome!');
+      alert('Fill in the Name field!');
       return;
     } else if (!emailData?.name) {
-      alert('Preencha o campo email!');
+      alert('Fill in the E-mail field!');
       return;
     } else if (!validateEmail(emailData.name)) {
-      alert('Digite um email valido!');
+      alert('Enter a valid E-mail!');
       return;
     } else if (!emailData?.message) {
-      alert('Preencha o campo mensagem!');
+      alert('Fill in the Message field!');
       return;
     }
 
@@ -34,7 +34,7 @@ const Contact = ({ reference }: IRefProps) => {
     <T.ContactContainer ref={reference}>
       <T.ContactContent className="container">
         <T.TitleContainer>
-          <T.TitleProject>contato</T.TitleProject>
+          <T.TitleProject>Contact</T.TitleProject>
           <T.TitleLine />
         </T.TitleContainer>
 
@@ -50,7 +50,7 @@ const Contact = ({ reference }: IRefProps) => {
                   style={{ marginRight: 30 }}
                   onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
                 />
-                <T.GenericLabel htmlFor="name">NOME</T.GenericLabel>
+                <T.GenericLabel htmlFor="name">NAME</T.GenericLabel>
               </div>
               <div className="col-6">
                 <T.GenericInput
@@ -73,11 +73,11 @@ const Contact = ({ reference }: IRefProps) => {
                   autoComplete="off"
                   onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
                 />
-                <T.MessageLabel htmlFor="message">MENSAGEM</T.MessageLabel>
+                <T.MessageLabel htmlFor="message">MESSAGE</T.MessageLabel>
               </div>
             </T.RowMessage>
 
-            <T.SubmitButton onClick={sendEmail}>Enviar</T.SubmitButton>
+            <T.SubmitButton onClick={sendEmail}>Send</T.SubmitButton>
           </T.FormContainer>
         </T.BoxForm>
       </T.ContactContent>

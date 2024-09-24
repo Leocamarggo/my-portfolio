@@ -1,5 +1,34 @@
 import styled, { css } from 'styled-components'
 
+export const TitleRow = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+`
+
+export const TitleAboutMe = styled.h1`
+    ${({ theme }) => css`
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 3px;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+
+        @media (max-width: ${theme.breakPoints.mobile}) {
+            font-size: 25px
+        }
+    `}
+`
+
+export const LineTitle = styled.div`
+    ${({ theme }) => css`
+        width: 80px;
+        border-top: 2px solid ${theme.colors.white}
+    `}
+`
+
 export const AboutMeContainer = styled.div`
     ${({ theme }) => css`
         border-top: 1px solid ${theme.colors.white};
@@ -36,7 +65,7 @@ export const TitleAboutText = styled.h1`
     ${({ theme }) => css`
         font-size: 30px;
         font-weight: bold;
-        
+        text-align: center;
         @media (max-width: ${theme.breakPoints.tablet}) {
             font-size: 25px;
         }
@@ -47,26 +76,10 @@ export const ParagraphAbout = styled.p`
     ${({ theme }) => css`
         font-size: 15px;
         max-width: 100%;
+        margin-top: 30px;
         
         @media (max-width: ${theme.breakPoints.mobile}) {
-            margin-top: 15px
-        }
-    `}
-`
-
-export const MyImageColumn = styled.div`
-    ${({ theme }) => css`
-        display: flex;
-        justify-content: flex-end;
-
-        > img {
-            width: 60%;
-            border-radius: 10px;
-            filter: drop-shadow(0px 7px 10px rgba(255, 255, 255, 0.25)) !important;
-            
-            @media (max-width: ${theme.breakPoints.tablet}) {
-                display: none !important;
-            }
+            margin-top: 45px
         }
     `}
 `
@@ -98,10 +111,10 @@ export const CardsContainer = styled.div`
         display: flex;
         flex-wrap: wrap;
         max-width: 570px;
+        justify-content: space-between;
 
         @media (max-width: ${theme.breakPoints.tablet}) {
             max-width: 100%;
-            justify-content: space-between;
         }
     `}
 `
