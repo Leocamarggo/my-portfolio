@@ -9,11 +9,14 @@ const AboutMe = ({ reference }: IRefProps) => {
       <T.AboutMeContent className="container">
         <T.TextAndTechsColumn className="col-6">
           <div>
-            <T.TitleAboutText>Quem sou</T.TitleAboutText>
+            <T.TitleRow>
+              <T.TitleAboutMe>About me</T.TitleAboutMe>
+            <T.LineTitle />
+            </T.TitleRow>
             <T.ParagraphAbout dangerouslySetInnerHTML={{ __html: about }}></T.ParagraphAbout>
           </div>
           <T.TechnologiesContainer>
-            <T.TitleKnowledge>Conhecimentos</T.TitleKnowledge>
+            <T.TitleKnowledge>My Skills</T.TitleKnowledge>
             <T.CardsContainer>
               {technologies.map((item, key) => {
                 return <CardTechnologies key={key} name={item.name} image={item.icon} />;
@@ -21,10 +24,6 @@ const AboutMe = ({ reference }: IRefProps) => {
             </T.CardsContainer>
           </T.TechnologiesContainer>
         </T.TextAndTechsColumn>
-
-        <T.MyImageColumn className="col-6">
-          <img src="/assets/images/me.png" alt="Eu - Leonardo Camargo" />
-        </T.MyImageColumn>
       </T.AboutMeContent>
     </T.AboutMeContainer>
   );

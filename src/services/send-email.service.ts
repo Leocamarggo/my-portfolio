@@ -5,9 +5,9 @@ export default class ContactService {
   static async sendEmail(data: IEmailRequest): Promise<void> {
     try {
       await api.post(`api/send-email`, { ...data, email: `leonardo.camarggo@outlook.com` });
-      alert('Mensagem enviada com sucesso!')
+      alert('Message sent successfully!')
     } catch (err) {
-      alert('Oppss... Tivemos uma falha ao enviar a sua mensagem.\nPor favor, me contate de outra forma ou tente mais tarde!')
+      alert('Oppss... We had an error sending your message.\nPlease contact me another way or try again later!')
     }
   }
 }

@@ -1,8 +1,8 @@
 export const about = `
-    Olá! Me chamo Leonardo, mas pode me chamar de Léo 🤓 <br/> <br/> 
-    Escrevendo códigos desde 2018 sou mais um apaixonado por programação e que ama aprender coisas novas. 
-    Atualmente trabalho como Desenvolvedor Full Stack na Verot Easy Tax. <br/> <br/>  
-    Dentre todos esses anos já atuei com diversas tecnologias, porém, minhas principais stacks estão no ecossistema do JavaScript ❤️`
+    Hello! My name is Leonardo, but you can call me Léo 🤓 <br/> <br/> 
+    Since 2018, I have been writing code, and I present myself as a curious person passionate about technology.<br/>
+    I currently work as a <b>Software Engineer</b> at <b>Spring Global</b>. <br/> <br/>  
+    Over these years, I have worked with various technologies, but I excel in the JavaScript ecosystem. ❤️`
 
 export const technologies = [
     {

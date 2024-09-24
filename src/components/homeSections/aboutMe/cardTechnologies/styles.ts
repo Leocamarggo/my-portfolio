@@ -8,6 +8,11 @@ export const Container = styled.div`
         margin: 0 30px 30px 0;
         background-color: ${theme.colors.darkGray};
 
+        &:nth-child(4),
+        &:last-child{
+            margin: 0 0px 30px 0;
+        }
+
         @media (max-width: ${theme.breakPoints.desktop}) {
             margin: 0 10px 30px 0 !important
         }

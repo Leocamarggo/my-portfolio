@@ -35,7 +35,7 @@ const Footer = () => {
           })}
         </T.LinksContainer>
         <T.CopyrightContainer className="col-6">
-          <T.CopyrightText>Com 🤍 by Léo</T.CopyrightText>
+          <T.CopyrightText>With 🤍 by Léo</T.CopyrightText>
         </T.CopyrightContainer>
       </T.FooterContent>
     </T.FooterContainer>
