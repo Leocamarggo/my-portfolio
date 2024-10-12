@@ -176,17 +176,41 @@ export const SubmitButton = styled.button`
         font-weight: bold;
         padding: 10px 40px;
         border-radius: 4px;
-        transition: all 1s;
         letter-spacing: 1px;
         color: ${theme.colors.white};
         transition-timing-function: ease;
         background: ${theme.colors.green};
         box-shadow: rgb(0 0 0 / 50%) 0px 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `}
+`
 
-        &:hover{
-            padding: 10px 60px;
-            letter-spacing: 2px;
-            color: ${theme.colors.darkGray};
+export const LoadingComponent = styled.div`
+    ${() => css`
+        display: inline-flex;
+        gap: 10px;
+
+        &::before, &::after{
+            content: "";
+            height: 20px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background:
+            radial-gradient(farthest-side,#000 95%,#0000) 35% 35%/6px 6px no-repeat
+            #fff;
+            transform: scaleX(var(--s,1)) rotate(0deg);
+            animation: l6 1s infinite linear;
+        }
+
+        &::after{
+            --s: -1;
+            animation-delay:-0.1s;
+        }
+
+        @keyframes l6 {
+            100% {transform:scaleX(var(--s,1)) rotate(360deg);}
         }
     `}
 `
