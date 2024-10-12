@@ -5,6 +5,7 @@ import { IRefProps } from 'interfaces/genericInterfaces';
 import ContactService from 'services/send-email.service';
 
 const Contact = ({ reference }: IRefProps) => {
+  const [loading, setLoading] = useState(false);
   const [emailData, setEmailData] = useState<IEmailRequest>();
 
   const validateEmail = (email: string) => {
@@ -28,7 +29,8 @@ const Contact = ({ reference }: IRefProps) => {
       return;
     }
 
-    ContactService.sendEmail(emailData);
+    setLoading(true);
+    ContactService.sendEmail(emailData).finally(() => setLoading(false));
   };
   return (
     <T.ContactContainer ref={reference}>
@@ -77,7 +79,12 @@ const Contact = ({ reference }: IRefProps) => {
               </div>
             </T.RowMessage>
 
-            <T.SubmitButton onClick={sendEmail}>Send</T.SubmitButton>
+            <T.SubmitButton
+              disabled={loading}
+              onClick={sendEmail}
+              style={loading ? { padding: '11px 35px' } : {}}>
+              {loading ? <T.LoadingComponent /> : 'Send'}
+            </T.SubmitButton>
           </T.FormContainer>
         </T.BoxForm>
       </T.ContactContent>
