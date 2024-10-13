@@ -1,8 +1,14 @@
 export const about = `
-    Hello! My name is Leonardo, but you can call me Léo 🤓 <br/> <br/> 
-    Since 2018, I have been writing code, and I present myself as a curious person passionate about technology.<br/>
-    I currently work as a <b>Software Engineer</b> at <b>Spring Global</b>. <br/> <br/>  
-    Over these years, I have worked with various technologies, but I excel in the JavaScript ecosystem. ❤️`
+    Hello! My name is Leonardo, but you can call me Léo. 🤓
+    <br/> <br/> 
+    Since 2018, I have been writing code, and I present myself as a curious person passionate about technology.
+    <br/> <br/>
+    I'm currently a Software Engineer at <b>Spring Global</b>, where we specialize in creating custom mobile solutions for medium to large enterprises. Our key clients include Apple, Red Bull, and Coca-Cola, and we focus on optimizing sales, merchandising, delivery strategies, and payment solutions to help these companies excel in the digital world.
+    <br/>
+    I'm part of the Support Team, where I maintain and develop new features and rules for the mobile app.
+    <br/> <br/>
+    Over the years, I've worked with various technologies, but my expertise lies within the JavaScript ecosystem. ❤️
+`
 
 export const technologies = [
     {
