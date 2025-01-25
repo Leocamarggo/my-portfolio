@@ -1,13 +1,10 @@
 export const about = `
-    Hello! My name is Leonardo, but you can call me Léo. 🤓
+    Hello! My name is Leonardo, but you can call me Leo. 🤓
     <br/> <br/> 
-    Since 2018, I have been writing code, and I present myself as a curious person passionate about technology.
+    Passionate about technology and driven by curiosity, I began my journey in software development in 2018. 
+    Since then, I have challenged myself daily to learn, grow, and specialize in the tools I work with, always focusing on agile development and delivering high-quality results.
     <br/> <br/>
-    I'm currently a Software Engineer at <b>Spring Global</b>, where we specialize in creating custom mobile solutions for medium to large enterprises. Our key clients include Apple, Red Bull, and Coca-Cola, and we focus on optimizing sales, merchandising, delivery strategies, and payment solutions to help these companies excel in the digital world.
-    <br/>
-    I'm part of the Support Team, where I maintain and develop new features and rules for the mobile app.
-    <br/> <br/>
-    Over the years, I've worked with various technologies, but my expertise lies within the JavaScript ecosystem. ❤️
+    My expertise revolves around the JavaScript ecosystem, with a strong focus on React.js, Node.js, and TypeScript. Over the years, I have worked with various technologies, always aiming to build scalable, maintainable, and sustainable solutions, as you can see in my profile below.
 `
 
 export const technologies = [
@@ -37,7 +34,7 @@ export const technologies = [
     },
     {
         name: "Material UI",
-        icon: "https://seeklogo.com/images/M/material-ui-logo-5BDCB9BA8F-seeklogo.com.png"
+        icon: "https://static-00.iconduck.com/assets.00/material-ui-icon-2048x1626-on580ia9.png"
     },
     {
         name: "Sass",
