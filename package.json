@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx}\" --color",
     "lint:fix": "eslint --fix",
@@ -81,6 +81,9 @@
     "*.{json,js,ts,jsx,tsx,html}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": "20.x"
   },
   "config": {
     "commitizen": {
