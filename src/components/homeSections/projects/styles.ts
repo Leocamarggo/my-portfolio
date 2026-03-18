@@ -1,85 +1,95 @@
 import styled, { css } from 'styled-components'
 
 export const ProjectsContainer = styled.div`
-    height: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
 `
 
 export const TitleRow = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export const TitleProjects = styled.h1`
-    ${({ theme }) => css`
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        letter-spacing: 3px;
-        padding-bottom: 10px;
-        text-transform: uppercase;
+  ${({ theme }) => css`
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 4px;
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    color: ${theme.colors.white};
 
-        @media (max-width: ${theme.breakPoints.mobile}) {
-            font-size: 25px
-        }
-    `}
+    @media (max-width: ${theme.breakPoints.mobile}) {
+      font-size: 24px;
+    }
+  `}
 `
 
 export const LineTitle = styled.div`
-    ${({ theme }) => css`
-        width: 80px;
-        border-top: 2px solid ${theme.colors.white}
-    `}
+  ${({ theme }) => css`
+    width: 60px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, ${theme.colors.green}, transparent);
+  `}
 `
 
 export const ProjectsRow = styled.div`
-    ${({ theme }) => css`
-        gap: 3rem;
-        display: grid;
-        margin-top: 80px;
-        position: relative;
-        place-items: center;
-        place-content: center;
-        grid-template-rows: auto;
-        justify-content: stretch;
-        grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  ${({ theme }) => css`
+    gap: 2rem;
+    display: grid;
+    margin-top: 70px;
+    grid-template-columns: repeat(3, 1fr);
 
-        @media (max-width: ${theme.breakPoints.desktop}) {
-            grid-template-columns: repeat(2, auto)
-        }
+    @media (max-width: ${theme.breakPoints.desktop}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-        @media (max-width: ${theme.breakPoints.mobile}) {
-            padding: 0 10px;
-            grid-template-columns: repeat(1, auto)
-        }
-    `}
+    @media (max-width: ${theme.breakPoints.tablet}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: ${theme.breakPoints.mobile}) {
+      grid-template-columns: 1fr;
+    }
+  `}
 `
 
 export const GitHubRow = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
 `
 
 export const TitleGitHub = styled.div`
-    ${({ theme }) => css`
-        cursor: pointer;
-        margin-top: 30px;
-        text-align: center;
-        color: ${theme.colors.green}
-    `}
+  ${({ theme }) => css`
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: ${theme.colors.green};
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border: 1px solid ${theme.colors.greenBorder};
+    border-radius: 4px;
+
+    > i {
+      font-size: 18px;
+    }
+
+    &:hover {
+      box-shadow: 0 0 16px ${theme.colors.greenGlow};
+      border-color: ${theme.colors.green};
+      transform: translateY(-2px);
+    }
+  `}
 `
-
-export const LineGitHub = styled.div`
-    ${({ theme }) => css`
-        width: 100px;
-        border-top: 2px solid ${theme.colors.green}
-    `}
-`
-
-
-

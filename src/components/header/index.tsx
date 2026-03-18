@@ -1,26 +1,33 @@
+import React from 'react';
 import * as T from './styles';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { IHeaderProps } from 'interfaces/header';
+import { useLanguage } from 'contexts/LanguageContext';
 
 const Header = (itemsMenu: IHeaderProps[]) => {
+  const { language, toggleLanguage } = useLanguage();
   const [menuMobileIsOpen, setMobileIsOpen] = useState(false);
 
-  useEffect(() => {
-    menuMobileIsOpen ? (document.body.style.overflow = 'hidden') : null;
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [menuMobileIsOpen]);
+  const handleMobileItemClick = (ref: React.RefObject<HTMLDivElement>) => {
+    setMobileIsOpen(false);
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <T.Container>
       <T.DesktopMenu className="container">
-        {itemsMenu.map(({ name, ref }, i) => (
-          <T.DesktopContent onClick={() => ref.current?.scrollIntoView()} key={i}>
-            <T.DesktopText>{name}</T.DesktopText>
-          </T.DesktopContent>
-        ))}
+        <T.NavItems>
+          {itemsMenu.map(({ name, ref }, i) => (
+            <T.DesktopContent onClick={() => ref.current?.scrollIntoView({ behavior: 'smooth' })} key={i}>
+              <T.DesktopText>{name}</T.DesktopText>
+            </T.DesktopContent>
+          ))}
+          <T.LangButton onClick={toggleLanguage}>
+            <T.LangOption active={language === 'pt-BR'}>PT</T.LangOption>
+            <T.LangSep>|</T.LangSep>
+            <T.LangOption active={language === 'en-US'}>EN</T.LangOption>
+          </T.LangButton>
+        </T.NavItems>
       </T.DesktopMenu>
 
       <T.MobileMenu>
@@ -32,13 +39,15 @@ const Header = (itemsMenu: IHeaderProps[]) => {
           <span className="navicon"></span>
         </T.MobileMenuIcon>
         <T.MobileContent className="menuMobile">
+          <T.MobileLangButton onClick={toggleLanguage}>
+            <T.LangOption active={language === 'pt-BR'}>PT</T.LangOption>
+            <T.LangSep>|</T.LangSep>
+            <T.LangOption active={language === 'en-US'}>EN</T.LangOption>
+          </T.MobileLangButton>
           {itemsMenu.map(({ name, ref }, i) => (
             <T.MobileText
               key={i}
-              onClick={() => {
-                setMobileIsOpen(!menuMobileIsOpen);
-                ref.current?.scrollIntoView();
-              }}>
+              onClick={() => handleMobileItemClick(ref as React.RefObject<HTMLDivElement>)}>
               {name}
             </T.MobileText>
           ))}

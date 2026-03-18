@@ -1,44 +1,45 @@
 import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-    ${({ theme }) => css`
-        padding: 20px 25px;
-        text-align: center;
-        border-radius: 10px;
-        margin: 0 30px 30px 0;
-        background-color: ${theme.colors.darkGray};
+  ${({ theme }) => css`
+    padding: 18px 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: ${theme.colors.darkGray};
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: default;
 
-        &:nth-child(4),
-        &:last-child{
-            margin: 0 0px 30px 0;
-        }
-
-        @media (max-width: ${theme.breakPoints.desktop}) {
-            margin: 0 10px 30px 0 !important
-        }
-
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            padding: 25px 50px
-        }
-
-        @media (max-width: ${theme.breakPoints.mobile}) {
-            padding: 35px 70px
-            margin: 0 3px 30px 0 !important
-        }
-
-        @media(max-width: 485px){
-            padding: 35px 50px !important
-        }
-    `}
+    &:hover {
+      border-color: ${theme.colors.green};
+      box-shadow: 0 0 18px ${theme.colors.greenGlow}, 0 4px 20px rgba(0, 0, 0, 0.4);
+      transform: translateY(-4px);
+    }
+  `}
 `
 
 export const NameTechnology = styled.p`
-    font-size: 10px;
-    margin-bottom: 20px;
+  ${({ theme }) => css`
+    font-size: 9px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: ${theme.colors.lightGray};
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+
+    ${Container}:hover & {
+      color: ${theme.colors.green};
+    }
+  `}
 `
 
 export const ImageTechnology = styled.img`
-    width: 50px;
-    filter: drop-shadow(0px 7px 5px rgba(255, 255, 255, 0.25)) !important
-`
+  width: 36px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0px 4px 3px rgba(255, 255, 255, 0.1));
 
+  ${Container}:hover & {
+    transform: scale(1.15);
+    filter: drop-shadow(0px 5px 6px rgba(2, 212, 99, 0.3));
+  }
+`

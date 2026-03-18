@@ -1,122 +1,175 @@
 import styled, { css } from 'styled-components'
 
-export const TitleRow = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-`
-
-export const TitleAboutMe = styled.h1`
-    ${({ theme }) => css`
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        letter-spacing: 3px;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-
-        @media (max-width: ${theme.breakPoints.mobile}) {
-            font-size: 25px
-        }
-    `}
-`
-
-export const LineTitle = styled.div`
-    ${({ theme }) => css`
-        width: 80px;
-        border-top: 2px solid ${theme.colors.white}
-    `}
-`
-
 export const AboutMeContainer = styled.div`
-    ${({ theme }) => css`
-        border-top: 1px solid ${theme.colors.white};
-        background-color: ${theme.colors.middleGray};
-        border-bottom: 1px solid ${theme.colors.white};
-    `}
+  ${({ theme }) => css`
+    background-color: ${theme.colors.middleGray};
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, ${theme.colors.green}, transparent);
+    }
+  `}
 `
 
 export const AboutMeContent = styled.div`
-    ${({ theme }) => css`
-        height: 100%;
-        display: flex;
-        padding-top: 100px;
-        text-align: justify;
-        align-items: center;
-        padding-bottom: 100px;
-        justify-content: center;
+  ${({ theme }) => css`
+    display: flex;
+    gap: 80px;
+    padding: 90px 0;
+    align-items: flex-start;
 
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            flex-direction: column-reverse;
-        }
-    `}
+    @media (max-width: ${theme.breakPoints.tablet}) {
+      flex-direction: column;
+      gap: 60px;
+      padding: 70px 0;
+    }
+  `}
 `
 
-export const TextAndTechsColumn = styled.div`
-    ${({ theme }) => css`
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            width: 100%;
-        }
-    `}
+export const LeftColumn = styled.div`
+  ${({ theme }) => css`
+    flex: 1;
+
+    @media (max-width: ${theme.breakPoints.tablet}) {
+      width: 100%;
+    }
+  `}
 `
 
-export const TitleAboutText = styled.h1`
-    ${({ theme }) => css`
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            font-size: 25px;
-        }
-    `}
+export const RightColumn = styled.div`
+  ${({ theme }) => css`
+    flex: 1;
+
+    @media (max-width: ${theme.breakPoints.tablet}) {
+      width: 100%;
+    }
+  `}
 `
 
-export const ParagraphAbout = styled.p`
-    ${({ theme }) => css`
-        font-size: 15px;
-        max-width: 100%;
-        margin-top: 30px;
-        
-        @media (max-width: ${theme.breakPoints.mobile}) {
-            margin-top: 45px
-        }
-    `}
+export const SectionTag = styled.span`
+  ${({ theme }) => css`
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: ${theme.colors.green};
+    display: block;
+    margin-bottom: 16px;
+  `}
 `
 
-export const TechnologiesContainer = styled.div`
-    ${({ theme }) => css`
-        margin-top: 90px;
+export const TitleAboutMe = styled.h2`
+  ${({ theme }) => css`
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: ${theme.colors.white};
+    margin-bottom: 28px;
 
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            margin-top: 60px !important;
-        }
-    `}
+    > span {
+      color: ${theme.colors.green};
+    }
+
+    @media (max-width: ${theme.breakPoints.mobile}) {
+      font-size: 1.8rem;
+    }
+  `}
 `
 
-export const TitleKnowledge = styled.p`
-    ${({ theme }) => css`
-        font-size: 20px;
-        max-width: 485px;
-        font-weight: bold;
+export const BioText = styled.p`
+  ${({ theme }) => css`
+    font-size: 15px;
+    line-height: 1.9;
+    color: ${theme.colors.textMuted};
+    padding-left: 16px;
+    border-left: 2px solid ${theme.colors.green};
+  `}
+`
 
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            max-width: 100%;
-        }
-    `}
+export const HighlightsRow = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+
+    @media (max-width: ${theme.breakPoints.mobile}) {
+      gap: 16px;
+    }
+  `}
+`
+
+export const HighlightCard = styled.div`
+  ${({ theme }) => css`
+    flex: 1;
+    min-width: 90px;
+    padding: 18px 16px;
+    border-radius: 8px;
+    text-align: center;
+    background: ${theme.colors.darkGray};
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: ${theme.colors.greenBorder};
+      box-shadow: 0 0 14px ${theme.colors.greenGlow};
+      transform: translateY(-3px);
+    }
+  `}
+`
+
+export const HighlightNumber = styled.span`
+  ${({ theme }) => css`
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: ${theme.colors.green};
+    line-height: 1;
+    margin-bottom: 6px;
+  `}
+`
+
+export const HighlightLabel = styled.span`
+  ${({ theme }) => css`
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: ${theme.colors.lightGray};
+  `}
+`
+
+export const SkillsTitle = styled.p`
+  ${({ theme }) => css`
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: ${theme.colors.green};
+    margin-bottom: 24px;
+  `}
 `
 
 export const CardsContainer = styled.div`
-    ${({ theme }) => css`
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 570px;
-        justify-content: space-between;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 
-        @media (max-width: ${theme.breakPoints.tablet}) {
-            max-width: 100%;
-        }
-    `}
+    @media (max-width: ${theme.breakPoints.desktop}) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: ${theme.breakPoints.tablet}) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: ${theme.breakPoints.mobile}) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  `}
 `
-
-

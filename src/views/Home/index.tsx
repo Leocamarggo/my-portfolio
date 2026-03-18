@@ -6,25 +6,27 @@ import Typewriter from 'typewriter-effect';
 import { IHeaderProps } from 'interfaces/header';
 import { options } from '../../utils/particlesOptions';
 import { AboutMe, Projects, Contact, Header, Footer } from 'components';
+import { useLanguage } from 'contexts/LanguageContext';
 
 const HomePage = () => {
+  const { t } = useLanguage();
   const aboutRef = useRef<null | HTMLDivElement>(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
   const ItemsHeader: IHeaderProps[] = [
     {
-      name: 'About me',
-      ref: aboutRef
+      name: t.header.about,
+      ref: aboutRef,
     },
     {
-      name: 'Projects',
-      ref: projectsRef
+      name: t.header.projects,
+      ref: projectsRef,
     },
     {
-      name: 'Contact',
-      ref: contactRef
-    }
+      name: t.header.contact,
+      ref: contactRef,
+    },
   ];
 
   return (
@@ -32,27 +34,25 @@ const HomePage = () => {
       {Header(ItemsHeader)}
 
       <T.IntroductionContainer className="container">
-        <T.Presentation className="col-6">
-          <T.IAmTitle>Hi, i&apos;m</T.IAmTitle>
+        <T.Presentation>
+          <T.IAmTitle>{t.hero.greeting}</T.IAmTitle>
           <T.Name>Leonardo Camargo.</T.Name>
+          <T.Divider />
           <T.Profession>
             <Typewriter
               onInit={(typewriter) => {
-                typewriter.typeString('Software Engineer.').start();
+                typewriter.typeString(t.hero.profession).start();
               }}
+              options={{ cursor: '|' }}
             />
           </T.Profession>
           <T.SeeMoreButton
             onClick={() => {
-              aboutRef.current?.scrollIntoView();
+              aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
             }}>
-            See more
+            {t.hero.seeMore}
           </T.SeeMoreButton>
         </T.Presentation>
-
-        <T.Illustration className="col-6">
-          <img src="/assets/images/illustration.png" alt="Illustração de Homem programando" />
-        </T.Illustration>
       </T.IntroductionContainer>
 
       <AboutMe reference={aboutRef} />

@@ -2,12 +2,15 @@ import * as T from './styles';
 import CardProjects from './cardProjects';
 import { projects } from './cardProjects/projects';
 import { IRefProps } from 'interfaces/genericInterfaces';
+import { useLanguage } from 'contexts/LanguageContext';
 
 const Projects = ({ reference }: IRefProps) => {
+  const { t } = useLanguage();
+
   return (
     <T.ProjectsContainer ref={reference} className="container">
       <T.TitleRow>
-        <T.TitleProjects>Projects</T.TitleProjects>
+        <T.TitleProjects>{t.projects.title}</T.TitleProjects>
         <T.LineTitle />
       </T.TitleRow>
 
@@ -30,9 +33,9 @@ const Projects = ({ reference }: IRefProps) => {
           onClick={() => {
             window.open('https://github.com/Leocamarggo?tab=repositories');
           }}>
-          See repositories in GitHub
+          <i className="fa-brands fa-github"></i>
+          {t.projects.seeGitHub}
         </T.TitleGitHub>
-        <T.LineGitHub />
       </T.GitHubRow>
     </T.ProjectsContainer>
   );

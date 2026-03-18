@@ -6,28 +6,31 @@ import theme from '../styles/theme';
 import GlobalStyle from '../styles/global';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 AOS.init();
 
 const RouterView = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Routes>
-          <Route
-            path={routes.default}
-            element={
-              process.env.REACT_APP_IN_MAINTENACE === 'true' ? (
-                <View.InMaintenance />
-              ) : (
-                <View.Home />
-              )
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Routes>
+            <Route
+              path={routes.default}
+              element={
+                process.env.REACT_APP_IN_MAINTENACE === 'true' ? (
+                  <View.InMaintenance />
+                ) : (
+                  <View.Home />
+                )
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 };
 

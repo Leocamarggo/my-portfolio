@@ -3,58 +3,60 @@ import { useState } from 'react';
 import { IEmailRequest } from 'interfaces/contact';
 import { IRefProps } from 'interfaces/genericInterfaces';
 import ContactService from 'services/send-email.service';
+import { useLanguage } from 'contexts/LanguageContext';
 
 const Contact = ({ reference }: IRefProps) => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [emailData, setEmailData] = useState<IEmailRequest>();
 
   const validateEmail = (email: string) => {
-    var re =
+    const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   };
 
   const sendEmail = () => {
     if (!emailData?.subject) {
-      alert('Fill in the Name field!');
+      alert(t.contact.alerts.nameRequired);
       return;
     } else if (!emailData?.name) {
-      alert('Fill in the E-mail field!');
+      alert(t.contact.alerts.emailRequired);
       return;
     } else if (!validateEmail(emailData.name)) {
-      alert('Enter a valid E-mail!');
+      alert(t.contact.alerts.emailInvalid);
       return;
     } else if (!emailData?.message) {
-      alert('Fill in the Message field!');
+      alert(t.contact.alerts.messageRequired);
       return;
     }
 
     setLoading(true);
     ContactService.sendEmail(emailData).finally(() => setLoading(false));
   };
+
   return (
     <T.ContactContainer ref={reference}>
       <T.ContactContent className="container">
         <T.TitleContainer>
-          <T.TitleProject>Contact</T.TitleProject>
+          <T.TitleProject>{t.contact.title}</T.TitleProject>
           <T.TitleLine />
         </T.TitleContainer>
 
         <T.BoxForm className="mt-5">
           <T.FormContainer>
             <T.RowNameAndEmail>
-              <div className="col-6">
+              <div>
                 <T.GenericInput
                   required
                   type="text"
                   name="name"
                   autoComplete="off"
-                  style={{ marginRight: 30 }}
                   onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
                 />
-                <T.GenericLabel htmlFor="name">NAME</T.GenericLabel>
+                <T.GenericLabel htmlFor="name">{t.contact.namePlaceholder}</T.GenericLabel>
               </div>
-              <div className="col-6">
+              <div>
                 <T.GenericInput
                   required
                   name="email"
@@ -63,7 +65,7 @@ const Contact = ({ reference }: IRefProps) => {
                   autoComplete="off"
                   onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
                 />
-                <T.GenericLabel htmlFor="email">E-MAIL</T.GenericLabel>
+                <T.GenericLabel htmlFor="email">{t.contact.emailPlaceholder}</T.GenericLabel>
               </div>
             </T.RowNameAndEmail>
 
@@ -75,15 +77,15 @@ const Contact = ({ reference }: IRefProps) => {
                   autoComplete="off"
                   onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
                 />
-                <T.MessageLabel htmlFor="message">MESSAGE</T.MessageLabel>
+                <T.MessageLabel htmlFor="message">{t.contact.messagePlaceholder}</T.MessageLabel>
               </div>
             </T.RowMessage>
 
             <T.SubmitButton
               disabled={loading}
               onClick={sendEmail}
-              style={loading ? { padding: '11px 35px' } : {}}>
-              {loading ? <T.LoadingComponent /> : 'Send'}
+              style={loading ? { padding: '12px 36px' } : {}}>
+              {loading ? <T.LoadingComponent /> : t.contact.send}
             </T.SubmitButton>
           </T.FormContainer>
         </T.BoxForm>
