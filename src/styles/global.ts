@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
     font-family: 'Century';
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
 
   ::-webkit-scrollbar {

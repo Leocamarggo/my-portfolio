@@ -1,94 +1,69 @@
 import * as T from './styles';
-import { useState } from 'react';
-import { IEmailRequest } from 'interfaces/contact';
 import { IRefProps } from 'interfaces/genericInterfaces';
-import ContactService from 'services/send-email.service';
 import { useLanguage } from 'contexts/LanguageContext';
+
+const socialLinks = [
+  {
+    id: 'linkedin',
+    icon: 'fa-brands fa-linkedin-in',
+    name: 'LinkedIn',
+    handle: '/in/leonardo-camargo',
+    url: 'https://www.linkedin.com/in/leonardo-camarggo/',
+    color: '#0A66C2',
+  },
+  {
+    id: 'github',
+    icon: 'fa-brands fa-github',
+    name: 'GitHub',
+    handle: '@Leocamarggo',
+    url: 'https://github.com/Leocamarggo',
+    color: '#ffffff',
+  },
+  {
+    id: 'email',
+    icon: 'fa-solid fa-envelope',
+    name: 'E-mail',
+    handle: 'leonardo.camarggo@outlook.com',
+    url: 'mailto:leonardo.camarggo@outlook.com',
+    color: '#02d463',
+  },
+];
 
 const Contact = ({ reference }: IRefProps) => {
   const { t } = useLanguage();
-  const [loading, setLoading] = useState(false);
-  const [emailData, setEmailData] = useState<IEmailRequest>();
-
-  const validateEmail = (email: string) => {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  };
-
-  const sendEmail = () => {
-    if (!emailData?.subject) {
-      alert(t.contact.alerts.nameRequired);
-      return;
-    } else if (!emailData?.name) {
-      alert(t.contact.alerts.emailRequired);
-      return;
-    } else if (!validateEmail(emailData.name)) {
-      alert(t.contact.alerts.emailInvalid);
-      return;
-    } else if (!emailData?.message) {
-      alert(t.contact.alerts.messageRequired);
-      return;
-    }
-
-    setLoading(true);
-    ContactService.sendEmail(emailData).finally(() => setLoading(false));
-  };
 
   return (
     <T.ContactContainer ref={reference}>
       <T.ContactContent className="container">
-        <T.TitleContainer>
-          <T.TitleProject>{t.contact.title}</T.TitleProject>
-          <T.TitleLine />
-        </T.TitleContainer>
+        <T.LeftColumn>
+          <T.SectionTag>{`// ${t.contact.sectionTag}`}</T.SectionTag>
+          <T.Headline dangerouslySetInnerHTML={{ __html: t.contact.headline }} />
+          <T.Subtitle>{t.contact.subtitle}</T.Subtitle>
+        </T.LeftColumn>
 
-        <T.BoxForm className="mt-5">
-          <T.FormContainer>
-            <T.RowNameAndEmail>
-              <div>
-                <T.GenericInput
-                  required
-                  type="text"
-                  name="name"
-                  autoComplete="off"
-                  onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
-                />
-                <T.GenericLabel htmlFor="name">{t.contact.namePlaceholder}</T.GenericLabel>
-              </div>
-              <div>
-                <T.GenericInput
-                  required
-                  name="email"
-                  type="email"
-                  className="w-100"
-                  autoComplete="off"
-                  onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
-                />
-                <T.GenericLabel htmlFor="email">{t.contact.emailPlaceholder}</T.GenericLabel>
-              </div>
-            </T.RowNameAndEmail>
-
-            <T.RowMessage>
-              <div className="col-12">
-                <T.MessageTextarea
-                  required
-                  name="message"
-                  autoComplete="off"
-                  onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
-                />
-                <T.MessageLabel htmlFor="message">{t.contact.messagePlaceholder}</T.MessageLabel>
-              </div>
-            </T.RowMessage>
-
-            <T.SubmitButton
-              disabled={loading}
-              onClick={sendEmail}
-              style={loading ? { padding: '12px 36px' } : {}}>
-              {loading ? <T.LoadingComponent /> : t.contact.send}
-            </T.SubmitButton>
-          </T.FormContainer>
-        </T.BoxForm>
+        <T.RightColumn>
+          <T.CardsRow>
+            {socialLinks.map((social) => (
+              <T.SocialCard
+                key={social.id}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                accentColor={social.color}>
+                <T.CardIconWrapper accentColor={social.color}>
+                  <i className={social.icon}></i>
+                </T.CardIconWrapper>
+                <T.CardInfo>
+                  <T.CardName>{social.name}</T.CardName>
+                  <T.CardHandle>{social.handle}</T.CardHandle>
+                </T.CardInfo>
+                <T.CardArrow>
+                  <i className="fa-solid fa-arrow-right"></i>
+                </T.CardArrow>
+              </T.SocialCard>
+            ))}
+          </T.CardsRow>
+        </T.RightColumn>
       </T.ContactContent>
     </T.ContactContainer>
   );

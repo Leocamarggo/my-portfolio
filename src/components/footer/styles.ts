@@ -60,6 +60,7 @@ export const LinkIcon = styled.a`
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.35s ease;
+    text-decoration: none;
 
     > i {
       cursor: pointer;

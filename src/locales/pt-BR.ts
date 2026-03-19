@@ -27,16 +27,9 @@ const ptBR = {
   },
   contact: {
     title: 'Contato',
-    namePlaceholder: 'NOME',
-    emailPlaceholder: 'E-MAIL',
-    messagePlaceholder: 'MENSAGEM',
-    send: 'Enviar',
-    alerts: {
-      nameRequired: 'Preencha o campo Nome!',
-      emailRequired: 'Preencha o campo E-mail!',
-      emailInvalid: 'Insira um E-mail válido!',
-      messageRequired: 'Preencha o campo Mensagem!',
-    },
+    sectionTag: 'contato',
+    headline: "Vamos construir algo <span>juntos</span>.",
+    subtitle: "Estou sempre aberto a novas oportunidades, colaborações ou só uma boa conversa. Escolha o canal que preferir e me chama.",
   },
 }
 

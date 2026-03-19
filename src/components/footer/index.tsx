@@ -6,7 +6,7 @@ const links = [
     icon: 'fa-brands fa-github'
   },
   {
-    url: 'https://www.linkedin.com/in/leonardo-camargo-5a8163194/',
+    url: 'https://www.linkedin.com/in/leonardo-camarggo/',
     icon: 'fa-brands fa-linkedin',
     class: 'mx-5'
   },

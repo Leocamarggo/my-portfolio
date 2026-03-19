@@ -27,16 +27,9 @@ const enUS = {
   },
   contact: {
     title: 'Contact',
-    namePlaceholder: 'NAME',
-    emailPlaceholder: 'E-MAIL',
-    messagePlaceholder: 'MESSAGE',
-    send: 'Send',
-    alerts: {
-      nameRequired: 'Fill in the Name field!',
-      emailRequired: 'Fill in the E-mail field!',
-      emailInvalid: 'Enter a valid E-mail!',
-      messageRequired: 'Fill in the Message field!',
-    },
+    sectionTag: 'contact',
+    headline: "Let's build something <span>together</span>.",
+    subtitle: "I'm always open to new opportunities, collaborations, or just a good conversation. Pick your preferred channel and let's talk.",
   },
 }
 
